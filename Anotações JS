@@ -1,0 +1,112 @@
+
+ANOTAÇÕES GERAIS DAS AULAS DE JAVASCRIPT:
+
+Regras e Dicas para nomear variáveis/identificadores:
+            
+    Regras
+        *Podem começar com letra, $ ou _
+        *Não podem começar com números
+        *É possível usar letras ou números
+        *Épossível usar acentos e símbolos
+        *Não podem conter espaços
+        *Não podem ser palavras reservadas (exemplo var ou function)
+
+    Dicas
+        *Maiúsculas e minúsculas fazem diferença
+        *Tente escolher nomes coerentes para as variáveis
+        *Evite se tornar um "programador alfabeto" (coloca os nomes das variáveis apenas como a,b,c,d,e,f etc.) ou um "programador contador" (coloca os nomes das variáveis apenas como n1,n2,x1,x2 etc.)
+    
+    
+
+    Tipos primordiais de Dados (Data Types):
+        *Number (5, 18, -12, 0.5, -15.9, 3.14, 8.0)
+        *String ("Google", 'Javascript', `Maria`, "23.595-070")
+        *boolean (True, False)
+        *function
+
+        typeof - serve para identificar o data type
+
+        Tem diversos outros data types como por exemplo:
+            Infinity e NaN - Not a Number (subcategorias do number)
+            null (subcategoria de object no JS)
+            undefined
+            object
+            Array - vetor (subcategoria de object)
+            por aí vai rs.
+
+Comandos Iniciais:            
+window.alert ou alert('Olá Mundo!') - Exibe uma mensagem na tela
+window.confirm ou confirm('Está gostando de JS?') - exibe uma mensagem de confirmação na tela
+window.prompt ou prompt('Qual seu nome?') - exibe uma mensagem para inserir alguma informação na tela - Receber o valor como String
+document.write() - Exibe a mensagem no documento (em um documento HTML por exemplo ele exibe no Body)
+
+Concatenação = + -> É usado para ligar uma coisa na outra, para essa condição é necessário que tenhamos a var string + var string
+
+Exemplo de concatenação: 
+var nome = window.prompt('Qual é o seu nome?')
+alert('É um grande prazer em te conhecer, ' + nome + '!')
+
+
+Adição = + -> o sinal de + também serve para adicionar, para essa condição é necessário que tenhamos  a var number + var number para que o JS reconheça que é uma adição ao invés de concatenação 
+
+Conversão de variável para o tipo número:
+Number.parserInt(n) - para números inteiros
+Number.parseFloat(n) - para números reais 
+Number(n) - o Javascript se vira para identificar se o número é inteiro ou real
+
+Exemplo de soma de variáveis:
+var n1 = Number(prompt('Digite um número: '))
+var n2 = Number(prompt('Digite outro número: '))
+var s = n1 + n2
+alert('A soma dos valores é ' + s)
+
+Conversão de variável para o tipo String:
+String(n)
+n.toString()
+
+Exemplo:
+var n1 = Number(prompt('Digite um número: '))
+var n2 = Number(prompt('Digite outro número: '))
+var s = n1 + n2
+alert('A soma dos valores é ' + String(s))
+
+Formatando Strings 
+var s = 'Javascript'
+'Eu estou apredendo s' - não faz interpolação
+'Eu estou aprendendo ' + s - usa a concatenação
+`Eu estou aprendendo ${s}` - usa template string (a crase ` é a delimitadora do template string) - faz a interpolação
+
+Exemplo: 
+var nome = prompt('Informe seu nome: ')
+var idade = prompt('Informe sua idade: ')
+var nota = prompt('Informe sua nota: ')
+alert(`O aluno ${nome} com ${idade} anos tirou a nota {nota}`
+
+Formatações adicionais de String
+s.length - quantos caracteres a string tem 
+s.toUpperCase() - tudo para 'MAIÚSCULAS'
+s.toLowerCase() - tudo para 'minúsculas'
+
+Exemplo:
+
+var nome = prompt('Qual é o seu nome?')
+document.write(`Olá, <strong>${nome}! </strong> Seu nome tem ${nome.length} letras. </br>` )
+document.write(`Seu nome em maiúsculas é ${nome.toUpperCase()}</br>`)
+document.write(`Seu nome em minúsculas é ${nome.toLowerCase()}`)
+
+Formatando números: Caso eu queira colocar mais casas decimais ou até mesmo converter o . por , é só proceder conforme abaixo:
+var n1 = 1543.5
+n1.toFixed(2).replace('.', ',') - O resultado vai ser 1545,50
+O .replace não funciona sozinho!
+
+Formatando para informar o salário de uma pessoa em algum tipo de moeda (R$, US$, etc)
+var n1 = 1543.5
+n1.toLocaleString('pt-BR', {style: 'currency', currency 'BRL'}) - O resultado vai ser R$ 1.545,50
+
+esmiuçando o código acima:
+
+.toLocaleString é uma string localizada por parte do mundo 
+pt-BR - a string está sendo localizada no português
+currency - mostra o valor monetário
+BRL - valor monetário do Brasil
+    

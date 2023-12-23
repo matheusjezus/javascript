@@ -1,6 +1,12 @@
 
 ANOTAÇÕES GERAIS DAS AULAS DE JAVASCRIPT:
 
+ATRIBUIÇÃO SIMPLES
+
+var a
+var n1
+var idade
+
 Regras e Dicas para nomear variáveis/identificadores:
             
     Regras
@@ -39,6 +45,9 @@ window.alert ou alert('Olá Mundo!') - Exibe uma mensagem na tela
 window.confirm ou confirm('Está gostando de JS?') - exibe uma mensagem de confirmação na tela
 window.prompt ou prompt('Qual seu nome?') - exibe uma mensagem para inserir alguma informação na tela - Receber o valor como String
 document.write() - Exibe a mensagem no documento (em um documento HTML por exemplo ele exibe no Body)
+
+
+TRATAMENTO DE DADOS 
 
 Concatenação = + -> É usado para ligar uma coisa na outra, para essa condição é necessário que tenhamos a var string + var string
 
@@ -99,14 +108,178 @@ var n1 = 1543.5
 n1.toFixed(2).replace('.', ',') - O resultado vai ser 1545,50
 O .replace não funciona sozinho!
 
-Formatando para informar o salário de uma pessoa em algum tipo de moeda (R$, US$, etc)
+Formatando para informar o número como monetário (R$, US$, etc)
 var n1 = 1543.5
 n1.toLocaleString('pt-BR', {style: 'currency', currency 'BRL'}) - O resultado vai ser R$ 1.545,50
 
-esmiuçando o código acima:
+Detalhando o código acima:
 
 .toLocaleString é uma string localizada por parte do mundo 
 pt-BR - a string está sendo localizada no português
 currency - mostra o valor monetário
 BRL - valor monetário do Brasil
-    
+
+OPERADORES DO JS
+
+Há vários operadores no Javascript mas os principais são:
+aritméticos
+atribuição
+relacionais
+lógicos
+ternário
+
+Operadores Aritméticos: + - * / % **
+5 + 2 -> 7
+5 - 2 -> 3
+5 * 2 -> 10
+5 / 2 -> 2.5
+5 % 2 -> 1 % vai identificar o resto de uma divisão inteira 
+5 ** 2 ->  25 ** é a potenciação
+
+Ordem de Precedência dos operados aritméticos:
+1° ()
+2° **
+3° * / %
+4° + - 
+
+Exemplo:
+var a = 5 + 3 //Resultado é 8
+var b = a % 5 //Resultado é 3
+var c = 5 * b ** 2 //Resultado é 45
+var d = 10 - a / 2 //Resultado é 6
+var e = 6 * 2 / d //Resultado é 2
+var f = b % e + 4 / e //Resultado é 3
+
+AUTO-ATRIBUIÇÃO
+var n = 3
+n = n + 4 // n deixa de valer 3 e passa a ser 7
+n = n - 5 // n deixa de valer 7 e passa a valer 2 e por aí vai.
+
+Simplificando auto-atribuição: 
+var n = 3
+n += 4 
+n -= 5 
+
+Operadores de incremento :
+
+Pós-incremento
+var x = 5
+x++ // x deixa de valer 5 e passa a ser 6 mas no terminal aparece o resultado 5
+x // apresenta o novo resultado 6
+
+x-- // x deixa de valer 5 e passa a ser 4 mas no terminal aparece o resultado 5
+x // apresenta o novo resultado 4
+
+Pré-incremento:
+var x = 5
+++x // x deixa de valer 5 e passa a ser 6 e apresenta esse resultado no terminal
+
+--x // x deixa de valer 5 e passa a ser 4 e apresenta esse resultado no terminal
+
+Operadores Relacionais: > < >= <= == != // O resultado apresentado será sempre em valor booleano (true or false)
+5 > 2 // 5 é maior que que 2? true
+7 < 4 // 7 é menor menor que 4? false
+8 >= 8 // 8 é maior ou igual a 8? true
+9 <= 7 // 9 é menor ou igual a 7? false
+5 == 5 // 5 é igual é 5? true
+4 != 4 // 4 é diferente de 4? false
+
+Exemplos:
+preço >= 200.50         // o preço é maior ou igual a 200.50?
+idade < 18              // a idade é menor do que 18?
+curso == 'Javascript'   // O curso é igual a Javascript?
+n1 != n3                // O primeiro número é diferente do segundo?
+
+Identidade: O Javascript reconhece com os operadores relacionais se as variáveis possuem a mesma grandeza/valor, não o tipo.
+
+Exemplo:
+5 == 5 -> true // 5 number é igual 5 number?
+5 == '5' -> true // 5 number é igual 5 string?
+5 != '5' -> false // 5 é diferente de 5 string?
+
+Para resolver esse problema existe um operador de identidade restrita, que busca averiguar se as variáveis possuem  o mesmo valor e o mesmo tipo, vide exemplo abaixo:
+
+5 === '5' -> false  // 5 number é identico a 5 string?
+5 === 5 -> true     // 5 number é identico a 5 number?
+5 !== '5' -> true   // 5 number é desigual restrito a 5 string?
+
+Operadores Lógicos: ! && ||
+
+! negação (não)
+! true -> false // uma coisa não verdadeira é falsa
+! false -> true // uma coisa não falsa é verdadeira
+
+&& conjunção (e)
+true && true -> true // consegui a caneta azul e a caneta vermelha
+true && false -> false // consegui a caneta azul e não consegui a caneta vermelha
+false && true -> false // não consegui a caneta azul e consegui a caneta vermelha
+false && false -> false // não consegui a caneta azul e não consegui a caneta vermelha
+
+
+|| disjunção (ou)
+true || true -> true // consegui a caneta azul e a caneta vermelha
+true || false -> true // consegui a caneta azul e não consegui a caneta vermelha
+false || true -> true // não consegui a caneta azul e consegui a caneta vermelha
+false || false -> false // não consegui a caneta azul e não consegui a caneta vermelha
+
+
+Ordem de Precedência de operadores lógicos:
+1° !
+2° &&
+3° ||
+
+
+Ordem de Precedência de operadores aritméticos relacionais e lógicos:
+1° Aritméticos - tem a subordens de Precedência
+2° Relacionais - não tem subordem, vai considerar oque aparecer primeiro
+3° Lógicos - tem subordem de Precedência
+
+Exemplo:
+
+var a = 5
+var b = 8
+
+ a > b && b % 2 == 0
+
+ a lógica acima é:
+
+ 1° b % 2 == 0 -> true      // O resto de uma divisão inteira de b é igual a 0? 
+ 2° a > b -> false          // 5 é maior do que 8?
+ 3° false && true -> false  // a > b &&(e) b % 2 == 0 
+
+Outro Exemplo:
+
+var a = 5
+var b = 8
+
+ a <= b || b / 2 == 2
+
+ 1° b / 2 == 2 -> false     // 8 / 2 é igual a 2?
+ 2° a <= b -> true          // 5 é menor ou igual a 8?
+ 3° true || false -> true   // a <= b ||(ou) b / 2 == 2
+
+ Mais Exemplos:
+ idade >= 15 && idade <=            // a idade está entre 15 e 17?
+ estado == 'RJ' || estado == 'SP'   // o estado é RJ ou SP?
+ salário > 1500 && sexo !='M'       // o salário é acima de 1500 e não é homem?
+
+Operadores Ternários: ? :
+Se chama ternário pois essa operação é composta de 3 partes com o ?: incluído na mesma sentença:
+
+teste ? true : false
+
+Exemplo:
+var média = 6.5
+média >= 7.0 ? "Aprovado" : "Reprovado" -> true // média é maior ou igual a 7? Se true - Aprovado | se false - Reprovado
+
+Outro Exemplo:
+vax x = 8
+var res = x % 2 == 0 ? 5 : 9
+
+1° x % 2 -> true   // O resto de uma divisão inteira de x é igual a 0?
+2° (?)sendo true = 5      
+3° (:)sendo false = 9
+
+Mais um Exemplo:
+var idade = 19
+var r = idade >= 18 ? 'MAIOR' : 'MENOR'

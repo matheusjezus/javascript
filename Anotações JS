@@ -283,3 +283,5 @@ var res = x % 2 == 0 ? 5 : 9
 Mais um Exemplo:
 var idade = 19
 var r = idade >= 18 ? 'MAIOR' : 'MENOR'
+
+DOCUMENT OBJECT MODEL (DOM):

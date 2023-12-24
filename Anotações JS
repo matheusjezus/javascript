@@ -284,4 +284,149 @@ Mais um Exemplo:
 var idade = 19
 var r = idade >= 18 ? 'MAIOR' : 'MENOR'
 
-DOCUMENT OBJECT MODEL (DOM):
+DOCUMENT OBJECT MODEL (DOM): É um modelo de objetos para documentos, basicamente é um conjunto de objetos dentro do seu navegador que vai dar acesso aos componentes internos do seu website, o DOM não funciona dentro do node.js por exemplo ele está presente quando o Javascript está sendo rodado dentro do navegador.
+
+ÁRVORE DOM: a árvore começa pela raiz e essa raiz é chamado window(janela) que é um objeto DOM, dentro do window nós temos vários outros objetos, segue alguns deles:
+
+location - diz qual é a localização do seu site, URL, qual a página atual/anterior
+document - se trata do documento atual
+history - guardar de onde você veio e pra onde você  vai, isso facilita a navegação.
+
+
+Exemplo de árvore DOM com o ex005.html de Javascript:
+                    window
+                   document
+                     html
+                head        body
+            meta title    h1 p p div
+                            strong
+
+PARENT E CHILD
+Dentro do objeto document nós temos o html e dentro do html nós temos o head e o body, criando essa relação de parent e child:
+
+head e body são child de html
+html é parent de head e body  
+meta e title são child de head
+head é parent de meta e title
+e assim sucessivamente. 
+
+Selecionando elementos para navegar pela Árvore DOM - existem vários métodos, mas temos essas 5 principais:
+
+por Marca: getElementsByTagName()[]
+
+Exemplo:
+
+var p1 = document.getElementsByTagName('p')[0] // No documento pega o primeiro[0] elemento de p
+window.document.write('Está escrito assim: ' + p1.innerText) // innerText é para escrever tudo oque está dentro elemento/objeto selecionado. 
+
+
+por ID: getElementByID()
+
+Exemplo:
+Seletor com ID 'msg'
+var d = window.document.getElementById('msg')
+d.innerText = 'Estou aguardando...'
+
+Também  pode ser feito da maneira abaixo:
+window.document.getElementById('msg').innerText = 'Olá!'
+
+por Nome: getElementsByName()[]
+
+Exemplo:
+Seletor com Name 'msg'
+var d = window.document.getElementsByName('msg')[0] // No documento pega o primeiro[0] elemento com name 
+d.innerText = 'Olá!'
+
+por Classe: getElementsByClassName()[]
+
+Exemplo:
+Seletor com Class 'msg'
+var d = window.document.getElementsByClassName('msg')[0]
+d.innerText = 'Olá!'
+
+por Seletor(novidade no JS e o mais recomendado de se utilizar atualmente): querySelector() querySelectorAll()
+
+Exemplo:
+Seletor div com ID 'msg'
+var d = window.document.querySelector('div#msg')
+d.innerText = 'Olá!'
+
+Seletor div com Class 'msg'
+var d = window.document.querySelector('div.msg')
+d.innerText = 'Olá!'
+
+
+EVENTOS DOM: Evento é tudo aquilo que possa acontecer com um elemento, o mais comum deles é o evento de mouse como por exemplo:
+
+mouseenter - quando o curso encostar no elemento
+mousemove - quando o cursor ficar se movendo dentro do elemento
+mousedown - quando você clica e segura do botão do mouse sobre um elemento
+mouseup - quando você soltar o botão de click do mouse sobre um elemento
+click - quando clicar e soltar o botão de click do mouse rapidamente sobre um elemento.
+mouseout - quando o curso se mover para fora do elemento.
+
+Existem vários outros eventos como os TouchEvents (para smartphones e Tablets)
+
+
+BLOCO: Conjuntos de linhas de código.
+
+FUNÇÕES: São blocos que serão executados apenas quando um evento ocorrer, para isso esse bloco deve ficar entre {}, dessa forma:
+
+function ação(parametro){
+    bloco de código
+}
+
+Exemplo:
+<body>
+    <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()"> // Eventos onclick, onmouseenter e onmouseout
+        Interaja..
+    </div>
+    <script>
+        var area = window.document.getElementById('area') // faz a ligação do objeto area dentro do JS com o elemento div#area que está dentro do HTML
+        function clicar(){ // Função ligada ao evento onclick
+            area.innerText = 'Clicou!' // Esse objeto vai mudar o conteúdo dele para "Clicou!"
+            area.style.background = 'red' // muda a cor do elemento para vermelho.
+        }
+        function entrar() { // Função ligada ao evento onmouseenter
+            area.innerText = 'Entrou!'
+        }
+        function sair() { // Função ligada ao evento onmouseout
+            area.innerText = 'Saiu!'
+            area.style.background = 'green' // muda a cor do elemento para verde.
+        }
+    </script>
+</body>
+
+Listeners no Javascript: É uma forma de disparar eventos dentro do Javascript ao invés de fazer isso via html, que funciona da seguinte maneira:
+
+nome do objeto.addEventListener('evento', nome do evento)
+
+Exemplo:
+<body>
+    <div id="area"> // HTML fica limpo
+        Interaja..
+    </div>
+    <script>
+        var area = window.document.getElementById('area')
+        area.addEventListener('click', clicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', sair)
+        
+        function clicar(){
+            area.innerText = 'Clicou!'
+            area.style.background = 'red'
+        }
+        function entrar() {
+            area.innerText = 'Entrou!'
+        }
+        function sair() {
+            area.innerText = 'Saiu!'
+            area.style.background = 'green'
+        }
+    </script>
+</body>
+
+DETECTANDO PEQUENOS ERROS NO JAVASCRIPT:
+
+Se por acaso alguma coisa não estiver funcionando basta clicar em INSPECIONAR sobre a página e verificar qual mensagem de erro o Console está apontando.
+

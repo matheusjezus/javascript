@@ -430,3 +430,46 @@ DETECTANDO PEQUENOS ERROS NO JAVASCRIPT:
 
 Se por acaso alguma coisa não estiver funcionando basta clicar em INSPECIONAR sobre a página e verificar qual mensagem de erro o Console está apontando.
 
+
+SEQUÊNCIAS: Segue exemplo de código sequencial -
+var n = 3
+n += 2
+window.alert(n)
+
+Repare que uma linha de código depende da anterior, eu não consigo executar o primeiro comando depois o terceiro e não executar o segundo por exemplo.
+
+
+CONDIÇÕES: É uma estrutura de controle muito importante para a programação, as condições mais comuns são if else:
+
+if (condição) { // se a condição for true execute os comandos abaixo
+    bloco de código
+} else { // se a condição for false execute os comandos abaixo
+    bloco de código
+}
+
+
+Tipos de Condição:
+
+1° if (condição) {bloco de código} //condição sem o else (também chamada de condição simples)
+
+2° if (condição) {bloco de código em caso de true} else {bloco de código em caso de false} (também chamada de condição composta)
+
+
+Exemplo de condição simples no node.js:
+
+var vel = 60.5
+console.log(`A velocidade do seu carro é ${vel}Km/h`) // em um documento Javascript ele apresenta o resultado no console
+if (vel >= 60) { //Condição simples!
+    console.log(`Você ultrapassou a velocidade permitida. MULTADO!`)
+}
+console.log(`Dirija sempre usando o cinto de segurança!`)
+
+Exemplo de condição composta no node.js: 
+
+var país = 'França'
+console.log(`Vivendo em ${país}`)
+if (país =='Brasil') {
+    console.log('Você é Brasileiro')
+} else {
+    console.log('Você é Estrangeiro')
+}

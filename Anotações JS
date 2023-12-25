@@ -455,21 +455,142 @@ Tipos de Condição:
 2° if (condição) {bloco de código em caso de true} else {bloco de código em caso de false} (também chamada de condição composta)
 
 
-Exemplo de condição simples no node.js:
+Exemplo de CONDIÇÃO SIMPLES:
 
-var vel = 60.5
-console.log(`A velocidade do seu carro é ${vel}Km/h`) // em um documento Javascript ele apresenta o resultado no console
-if (vel >= 60) { //Condição simples!
-    console.log(`Você ultrapassou a velocidade permitida. MULTADO!`)
+<body>
+    <h1>Sistema de Multas</h1>
+    Velocidade do carro:<input type="number" name="txtvel" id="txtvel">
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">
+
+    </div>
+    <script>
+        function calcular() {
+            var txtv = window.document.querySelector('input#txtvel')
+            var res = window.document.querySelector('div#res')
+            var vel = Number(txtv.value) //Converte o valor para Number
+            res.innerHTML = (`<p>Sua velocidade atual é de <strong>${vel}Km/h</strong></p>`) 
+            if (vel > 60) {
+                res.innerHTML += `<p>Você está <strong>MULTADO</strong> por excesso de velocidade </p>` // Importante ter o += para concatenar com o conteúdo res.innerHTML anterior
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+        
+    </script>
+</body>
+
+Exemplo de CONDIÇÃO COMPOSTA: 
+
+<body>
+    <h1>Descubra sua Nacionalidade</h1>
+    Informe seu País de Origem: <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">
+
+    </div>
+    <script>
+        function calcular() {
+            var txtp = window.document.querySelector('input#txtpais')
+            var res = window.document.querySelector('div#res')
+            var pais = String(txtp.value) // Convertendo a informação para String
+            res.innerHTML = (`<p>Vivendo em <strong>${pais}</strong></p>`)
+            if (pais != 'Brasil') {
+                res.innerHTML += `<p>Você é <strong>estrangeiro!</strong> </p>`
+            } else {
+                res.innerHTML += `<p>você é <strong>Brasileiro</strong></p>`
+            }
+            
+        }
+        
+    </script>
+</body>
+
+CONDIÇÕES ANINHADAS: Basicamente é pegar uma condição composta e colocar outras condições dentro dela, ou seja, uma condição dentro da outra:
+
+if (condição1) { // se for true ele executa o bloco 1
+    bloco1
+} else { // é executado quando a condição 1 for false
+    if (condição2) { // se a condição 1 for false e a condição 2 for true ele executa o bloco 2
+        bloco 2
+    } else {
+        bloco 3 // se a condição 1 for false e a condição 2 for false ele executa o bloco 3
+    }
 }
-console.log(`Dirija sempre usando o cinto de segurança!`)
 
-Exemplo de condição composta no node.js: 
+Exemplo:
+var idade = 15
+console.log(`Você tem ${idade} anos.`)
+if (idade < 16) {
+    console.log('Não vota')
+} else if (idade < 18 || idade > 65) {
+    console.log('Voto Opcional')
+} else if (idade >= 18){
+    console.log('Voto obrigatório')
+    }
 
-var país = 'França'
-console.log(`Vivendo em ${país}`)
-if (país =='Brasil') {
-    console.log('Você é Brasileiro')
-} else {
-    console.log('Você é Estrangeiro')
+CONDIÇÃO MÚLTIPLA:
+switch (expressão){ 
+
+    case valor 1:
+        bloco 1
+
+        break
+    case valor 2: // se a expressão entrar no case 2 ele vai executar o bloco de códigos e encerrar no break
+        bloco 2
+
+        break // MUITO IMPORTANTE para que ele não saia executando todos os cases listados na sequência.
+    case valor 3:
+        bloco 3
+
+        break
+    default:
+
+    break
 }
+
+Exemplo Node.js:
+
+var agora = new Date() // Formatação para data
+var diaSem = agora.getDay() // coleta a data do calendário local.
+
+/*  Os dias são coletados como números:
+    0 = Domingo
+    1 = Segunda
+    2 = Terça
+    3 = Quarta
+    4 = Quinta
+    5 = Sexta
+    7 = Sábado
+*/
+ Portanto é um ótimo caso para usar o Switch
+
+console.log(diaSem) // vai mostrar o resultado de 0 a 7 dependendo do dia da semana.
+
+switch(diaSem) {
+    case 0:
+        console.log('Domingo')
+        break
+    case 1:
+        console.log('Segunda-feira')
+        break
+    case 2:
+        console.log('Terça-feira')
+        break
+    case 3:
+        console.log('Quarta-feira')
+        break
+    case 4:
+        console.log('Quinta-feira')
+        break
+    case 5:
+        console.log('Sexta-feira')
+        break
+    case 6:
+        console.log('Sábado')
+        break
+    default:
+        console.log('[ERRO] Dia inválido')
+        break
+}
+
+OBS: Switch só funciona com números inteiros e caracteres(String ' '), é bom pra testar casos pontuais, mas péssimo para intervalos.

@@ -594,3 +594,29 @@ switch(diaSem) {
 }
 
 OBS: Switch só funciona com números inteiros e caracteres(String ' '), é bom pra testar casos pontuais, mas péssimo para intervalos.
+
+
+Repetições/Laços com testes lógicos no início:
+
+var c = 1
+while (c <= 6) { // primeiro ele testa a condição e depois executa o código
+    console.log(`Passo ${c}`)
+    c++ // c = c +1
+}
+
+Repetições/Laços com testes lógicos no final:
+
+var c = 1
+do {
+    console.log(`Passo ${c}`)
+    c++ // c = c +1
+} while (c <= 6) 
+
+Repetições/Laços com variável de controle:
+
+console.log('Vai começar...')
+//for  (xxxxxx ;     teste ;  incremento)
+for (var c = 1 ; c <= 5; c++) {
+    console.log(c)
+}
+console.log('FIM!')

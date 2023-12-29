@@ -645,3 +645,13 @@ console.log(`Nosso vetor é o ${num}`)
 
 console.log(`O vetor tem ${num.length} posições`) // informa quantos elementos tem dentro do array num
 console.log(num[1]) // informa o valor que está dentro do elemento 1
+
+
+Aprofundando Funções: 
+
+As funções podem ter os seguintes fatores
+chamada - conjunto de parâmetros - ações - retorno.
+
+São ações executadas assim que são chamadas ou em decorrência de um evento (automatização por exemplo toda quarta-feira às 08:00 executar a função xpto)
+
+Uma função pode receber parâmetros e retornar um resultado.

@@ -615,8 +615,33 @@ do {
 Repetições/Laços com variável de controle:
 
 console.log('Vai começar...')
-//for  (xxxxxx ;     teste ;  incremento)
+//for  (inicialização ;   teste ;  incremento)
 for (var c = 1 ; c <= 5; c++) {
     console.log(c)
 }
 console.log('FIM!')
+
+VARIÁVEIS SIMPLES: só conseguem armazenar um valor por vez.
+
+VARIÁVEIS COMPOSTAS: devem ser capazes de armazenar vários valores em uma mesma estrutura. 
+
+
+array vetor = valores
+Ex: let num = [ 5, 8, 4] 
+                0  1  2 - índice ou chave/key
+
+// vetor de 3 elementos com os índices 0, 1 e 2 e os valores 5,8 e 4 
+
+Um array ou vetor ou uma variável composta é uma variável que tem vários elementos, cada elemento é composto por seu valor e por uma chave de identificação.
+
+Exemplo:
+
+let num = [5, 8, 2, 9, 3]
+//num[5] = 6 | dessa forma eu coloco o valor 6 no índice 5 do array
+num.push(7) //colocar o valor 7 em um array sem precisar definir uma chave.
+num.length // não tem () pois não é um método e sim um atributo, serve para descobrir o comprimento(elementos) de um array
+num.sort() // pega todos os elementos e coloca em ordem crescente.
+console.log(`Nosso vetor é o ${num}`)
+
+console.log(`O vetor tem ${num.length} posições`) // informa quantos elementos tem dentro do array num
+console.log(num[1]) // informa o valor que está dentro do elemento 1

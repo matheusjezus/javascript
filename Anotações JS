@@ -655,3 +655,24 @@ chamada - conjunto de parâmetros - ações - retorno.
 São ações executadas assim que são chamadas ou em decorrência de um evento (automatização por exemplo toda quarta-feira às 08:00 executar a função xpto)
 
 Uma função pode receber parâmetros e retornar um resultado.
+
+
+PRÓXIMOS PASSOS JAVASCRIPT: 
+
+O Javascript é uma linguagem funcional e também é uma linguagem Orientada a Objetos.
+
+functions (arrow functions, callbacks, funcções anônimas, IIFE, etc.)
+
+objetos
+
+modularização
+
+RegEx (Expressões Regulares)
+
+JSON
+
+AJAX
+
+NodeJS
+
+JQuery, VueJS, Angular, React.
